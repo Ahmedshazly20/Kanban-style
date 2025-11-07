@@ -1,0 +1,64 @@
+{
+    "tasks": [
+        {
+            "id": 1,
+            "title": "Design homepage",
+            "description": "Include hero section and contact form",
+            "column": "backlog"
+        },
+        {
+            "id": 2,
+            "title": "Setup project repository",
+            "description": "Initialize Git repo and configure CI/CD pipeline",
+            "column": "done"
+        },
+        {
+            "id": 3,
+            "title": "Implement authentication",
+            "description": "Add login and registration with JWT tokens",
+            "column": "in-progress"
+        },
+        {
+            "id": 4,
+            "title": "Code review for API endpoints",
+            "description": "Review all REST API endpoints for security issues",
+            "column": "review"
+        },
+        {
+            "id": 5,
+            "title": "Write unit tests",
+            "description": "Add unit tests for all components with 80% coverage",
+            "column": "in-progress"
+        },
+        {
+            "id": 6,
+            "title": "Update documentation",
+            "description": "Update README and API documentation",
+            "column": "backlog"
+        },
+        {
+            "id": 7,
+            "title": "Fix responsive issues",
+            "description": "Fix mobile responsiveness on dashboard page",
+            "column": "review"
+        },
+        {
+            "id": 8,
+            "title": "Deploy to production",
+            "description": "Deploy application to Vercel production environment",
+            "column": "done"
+        },
+        {
+            "id": 9,
+            "title": "Optimize database queries",
+            "description": "Improve performance of slow database queries",
+            "column": "backlog"
+        },
+        {
+            "id": 10,
+            "title": "Add dark mode",
+            "description": "Implement dark mode theme with toggle switch",
+            "column": "backlog"
+        }
+    ]
+}
