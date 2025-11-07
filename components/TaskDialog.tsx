@@ -37,15 +37,20 @@ export default function TaskDialog() {
     const createMutation = useCreateTask();
     const updateMutation = useUpdateTask();
 
-    const isEditMode = selectedTask && selectedTask.id !== 0;
+    const isEditMode = selectedTask && selectedTask.id > 0;
 
     useEffect(() => {
         if (selectedTask) {
             setTitle(selectedTask.title || '');
             setDescription(selectedTask.description || '');
             setColumn(selectedTask.column || 'backlog');
+        } else {
+            setTitle('');
+            setDescription('');
+            setColumn('backlog');
+            setErrors({});
         }
-    }, [selectedTask]);
+    }, [selectedTask, isOpen]);
 
     const handleClose = () => {
         dispatch(closeDialog());
@@ -80,6 +85,7 @@ export default function TaskDialog() {
 
         try {
             if (isEditMode && selectedTask) {
+                // Update existing task
                 await updateMutation.mutateAsync({
                     id: selectedTask.id,
                     data: {
@@ -89,6 +95,7 @@ export default function TaskDialog() {
                     },
                 });
             } else {
+                // Create new task (don't send id)
                 await createMutation.mutateAsync({
                     title: title.trim(),
                     description: description.trim(),

@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
-import { closeDeleteDialog } from '@/features/ui/uiSlice';
+import { closeDeleteDialog, openDialog } from '@/features/ui/uiSlice';
 import { useDeleteTask } from '@/hooks/useTaskQueries';
 
 export default function ConfirmDialog() {

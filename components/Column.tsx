@@ -7,7 +7,8 @@ import AddIcon from '@mui/icons-material/Add';
 import TaskCard from './TaskCard';
 import type { Task, ColumnType } from '@/types/task';
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
-import { openDialog, setSelectedTask } from '@/features/tasks/tasksSlice';
+import { setSelectedTask } from '@/features/tasks/tasksSlice';
+import { openDialog } from '@/features/ui/uiSlice';
 import { useState, useMemo } from 'react';
 
 interface ColumnProps {

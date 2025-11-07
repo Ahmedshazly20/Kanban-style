@@ -144,14 +144,7 @@ export default function KanbanBoard() {
                         <Typography variant="h4" component="h1" sx={{ fontWeight: 700 }}>
                             📋 Kanban Board
                         </Typography>
-                        <Button
-                            variant="contained"
-                            startIcon={<AddIcon />}
-                            onClick={handleAddTask}
-                            sx={{ textTransform: 'none', px: 3 }}
-                        >
-                            New Task
-                        </Button>
+
                     </Box>
 
                     <SearchBar />

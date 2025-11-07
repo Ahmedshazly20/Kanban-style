@@ -7,6 +7,11 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/tasks'
 const handleApiError = (error: unknown) => {
     if (axios.isAxiosError(error)) {
         const axiosError = error as AxiosError;
+        console.error('API Error:', {
+            message: axiosError.message,
+            response: axiosError.response?.data,
+            status: axiosError.response?.status,
+        });
         throw new Error(
             axiosError.response?.data
                 ? JSON.stringify(axiosError.response.data)
@@ -44,11 +49,8 @@ export const tasksAPI = {
 
     create: async (task: Omit<Task, 'id'>) => {
         try {
-            const { data } = await axios.post<Task>(API_URL, {
-                ...task,
-                createdAt: new Date().toISOString(),
-                updatedAt: new Date().toISOString(),
-            });
+            // json-server will auto-generate the id
+            const { data } = await axios.post<Task>(API_URL, task);
             return data;
         } catch (error) {
             handleApiError(error);
@@ -58,10 +60,7 @@ export const tasksAPI = {
 
     update: async (id: number, task: Partial<Task>) => {
         try {
-            const { data } = await axios.patch<Task>(`${API_URL}/${id}`, {
-                ...task,
-                updatedAt: new Date().toISOString(),
-            });
+            const { data } = await axios.patch<Task>(`${API_URL}/${id}`, task);
             return data;
         } catch (error) {
             handleApiError(error);
